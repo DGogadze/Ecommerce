@@ -4,26 +4,29 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import java.sql.Date;
 
 @Entity
 public class User {
     public User() {
     }
 
+    public User(String userEmail, String userName, String userPassword) {
+        this.userName = userName;
+        this.userPassword = userPassword;
+        this.userEmail = userEmail;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    long id;
+    private long id;
 
-    int userPrivateIdNumber;
+    private int userPrivateIdNumber;
 
-    String userName;
-    String userPassword;
-    String userEmail;
+    private String userName;
+    private String userPassword;
+    private String userEmail;
 
     boolean activated = false;
-
-    private Date userRegistrationDate;
 
     public long getId() {
         return id;
@@ -63,14 +66,6 @@ public class User {
 
     public void setActivated(boolean activated) {
         this.activated = activated;
-    }
-
-    public Date getUserRegistrationDate() {
-        return userRegistrationDate;
-    }
-
-    public void setUserRegistrationDate(Date userRegistrationDate) {
-        this.userRegistrationDate = userRegistrationDate;
     }
 
     public int getUserPrivateIdNumber() {

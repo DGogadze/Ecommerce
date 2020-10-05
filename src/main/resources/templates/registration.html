@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ec-commerce - რეგისტრაცია</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+<body>
+<header th:insert="blocks/header :: header"></header>
+<form action="/registration" method="post" style="border:1px solid #ccc">
+    <div class="container">
+        <h1>რეგისტრაცია</h1>
+        <p>გთხოვთ შეავსოთ ველები რეგისტრაციისთვის.</p>
+        <hr>
+
+        <label><b>ელ.ფოსტა</b></label>
+        <input type="text" placeholder="შეიყვანეთ ელ.ფოსტა" name="userEmail" required>
+
+        <label><b>მომხმარებლის სახელი</b></label>
+        <input type="text" placeholder="შეიყვანეთ მომხმარებლის სახელი" name="userName" required>
+
+        <label><b>პაროლი</b></label>
+        <input type="password" placeholder="შეიყვანეთ პაროლი" name="userPassword" required>
+
+        <label>
+            <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> დამახსოვრება
+        </label>
+
+        <p>მომხმარებლის შექმნისას თქვენ თანხმდებით ვებ-საიტის პრივატულობის წესებს <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+
+        <div class="clearfix">
+            <button type="button" class="btn btn-danger">დახურვა</button>
+            <button type="submit" class="btn btn-success">რეგისტრაცია</button>
+        </div>
+    </div>
+</form>
+<footer th:insert="blocks/footer :: footer"></footer>
+</body>
+</html>
