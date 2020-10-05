@@ -15,6 +15,8 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     long id;
 
+    int userPrivateIdNumber;
+
     String userName;
     String userPassword;
     String userEmail;
@@ -69,5 +71,13 @@ public class User {
 
     public void setUserRegistrationDate(Date userRegistrationDate) {
         this.userRegistrationDate = userRegistrationDate;
+    }
+
+    public int getUserPrivateIdNumber() {
+        return userPrivateIdNumber;
+    }
+
+    public void setUserPrivateIdNumber(int userPrivateIdNumber) {
+        this.userPrivateIdNumber = userPrivateIdNumber;
     }
 }
