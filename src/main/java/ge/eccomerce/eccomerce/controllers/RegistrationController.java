@@ -24,12 +24,11 @@ public class RegistrationController {
 
     @PostMapping("/registration")
     public String registration(@RequestParam String userEmail,@RequestParam String userName,
-                               @RequestParam String userPassword,Model model){
-        if (userRepository.findByUserName(userName)==null&&userRepository.findByUserEmail(userEmail)==null){
-            userRegistrationService.userRegistration(userEmail,userName,userPassword);
-
-            return "redirect:/home";
+                               @RequestParam String userLastname,@RequestParam String userPrivateId, Model model){
+        if (userRepository.findByUserEmail(userEmail)==null&&userRepository.findByUserPrivateIdNumber(Integer.parseInt(userPrivateId))==null){
+            userRegistrationService.userRegistration(userEmail,userName,userLastname,Integer.parseInt(userPrivateId));
         }
+
         return "redirect:/home";
     }
 }

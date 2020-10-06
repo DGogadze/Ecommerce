@@ -10,9 +10,13 @@ public class User {
     public User() {
     }
 
-    public User(String userEmail, String userName, String userPassword) {
+    public User(int userPrivateIdNumber,
+                String userName,
+                String userLastname,
+                String userEmail) {
+        this.userPrivateIdNumber = userPrivateIdNumber;
         this.userName = userName;
-        this.userPassword = userPassword;
+        this.userLastname = userLastname;
         this.userEmail = userEmail;
     }
 
@@ -22,7 +26,7 @@ public class User {
 
     private int userPrivateIdNumber;
 
-    private String userName;
+    private String userName,userLastname;
     private String userPassword;
     private String userEmail;
 
@@ -74,5 +78,13 @@ public class User {
 
     public void setUserPrivateIdNumber(int userPrivateIdNumber) {
         this.userPrivateIdNumber = userPrivateIdNumber;
+    }
+
+    public String getUserLastname() {
+        return userLastname;
+    }
+
+    public void setUserLastname(String userLastname) {
+        this.userLastname = userLastname;
     }
 }

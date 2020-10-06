@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Ec-commerce - რეგისტრაცია</title>
@@ -14,13 +14,16 @@
         <hr>
 
         <label><b>ელ.ფოსტა</b></label>
-        <input type="text" placeholder="შეიყვანეთ ელ.ფოსტა" name="userEmail" required>
+        <input type="text" placeholder="შეიყვანეთ ელ.ფოსტა" name="userEmail" required><br>
 
-        <label><b>მომხმარებლის სახელი</b></label>
-        <input type="text" placeholder="შეიყვანეთ მომხმარებლის სახელი" name="userName" required>
+        <label><b>სახელი</b></label>
+        <input type="text" placeholder="შეიყვანეთ თქვენი სახელი" name="userName" required><br>
 
-        <label><b>პაროლი</b></label>
-        <input type="password" placeholder="შეიყვანეთ პაროლი" name="userPassword" required>
+        <label><b>გვარი</b></label>
+        <input type="text" placeholder="შეიყვანეთ თქვენი გვარი" name="userLastname" required><br>
+
+        <label><b>პირადი ნომერი</b></label>
+        <input type="text" placeholder="შეიყვანეთ თქვენი პირადი ნომერი" name="userPrivateId" required><br>
 
         <label>
             <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> დამახსოვრება
