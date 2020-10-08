@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Ec-commerce - ავტორიზაცია</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+<body>
+<header th:insert="blocks/header :: header"></header>
+    <form action="/login" method="post" style="border:1px solid #ccc">
+    <div class="container">
+        <h1>ავტორიზაცია</h1>
+        <p>გთხოვთ შეავსოთ ველები ავტორიზაციისთვის.</p>
+        <hr>
+        <label><b>ელ.ფოსტა</b></label><br>
+        <input class="col-4" type="text" placeholder="ელ.ფოსტა" name="userEmail" required><br><br>
+
+        <label><b>პაროლი</b></label><br>
+        <input class="col-4" type="text" placeholder="პაროლი" name="userPassword" required><br>
+
+        <label>
+            <input type="checkbox" name="remember" style="margin-bottom:15px"> დამახსოვრება
+        </label>
+
+        <div class="clearfix">
+            <button type="button" class="btn btn-danger">დახურვა</button>
+            <button type="submit" class="btn btn-success">ავტორიზაცია</button>
+        </div>
+    </form>
+</div>
+<footer th:insert="blocks/footer :: footer"></footer>
+</body>
+</html>

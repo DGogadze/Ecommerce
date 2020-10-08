@@ -12,7 +12,7 @@ public class UserRegistrationService {
     @Autowired
     MailSenderService mailSenderService;
 
-    public void userRegistration(String userEmail,String userName,String userLastname,int userPrivateId){
+    public void userRegistration(String userEmail,String userName,String userLastname,String userPrivateId){
         User user = new User(userPrivateId,userName,userLastname,userEmail);
         mailSenderService.sendMail(userEmail,"Ec-commerce registration",
                 "\t მოგესალმებით " + userName + " " + userLastname + "\n თქვენ დარეგისტრირდით" +

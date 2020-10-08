@@ -28,15 +28,20 @@ public class RegistrationController {
                                @RequestParam String userPrivateId,
                                RedirectAttributes redirectAttributes,
                                Model model){
-        if (userRepository.findByUserEmail(userEmail)==null&&userRepository.findByUserPrivateIdNumber(Integer.parseInt(userPrivateId))==null){
-            userRegistrationService.userRegistration(userEmail,userName,userLastname,Integer.parseInt(userPrivateId));
+        if (userRepository.findByUserEmail(userEmail)==null&&userRepository.findByUserPrivateIdNumber(userPrivateId)==null){
+            userRegistrationService.userRegistration(userEmail,userName,userLastname,userPrivateId);
         } else {
-            /** Need @ModelAttribute */
             redirectAttributes.addFlashAttribute("userEmail",userEmail);
             redirectAttributes.addFlashAttribute("userPrivateId",userPrivateId);
             return "redirect:/registrationfailed";
         }
 
         return "redirect:/home";
+    }
+
+    @GetMapping("/registrationfailed")
+    public String registrationFailed(Model model){
+
+        return "registrationfailed";
     }
 }

@@ -10,7 +10,7 @@ public class User {
     public User() {
     }
 
-    public User(int userPrivateIdNumber,
+    public User(String userPrivateIdNumber,
                 String userName,
                 String userLastname,
                 String userEmail) {
@@ -24,7 +24,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    private int userPrivateIdNumber;
+    private String userPrivateIdNumber;
 
     private String userName,userLastname;
     private String userPassword;
@@ -72,11 +72,11 @@ public class User {
         this.activated = activated;
     }
 
-    public int getUserPrivateIdNumber() {
+    public String getUserPrivateIdNumber() {
         return userPrivateIdNumber;
     }
 
-    public void setUserPrivateIdNumber(int userPrivateIdNumber) {
+    public void setUserPrivateIdNumber(String userPrivateIdNumber) {
         this.userPrivateIdNumber = userPrivateIdNumber;
     }
 
