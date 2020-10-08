@@ -20,7 +20,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     .disable()
                 .authorizeRequests()
                     .antMatchers("/","/home").permitAll()
-                    .anyRequest().permitAll()
+                    .anyRequest().authenticated()
                     .and()
                 .formLogin()
                     .loginPage("/login")
@@ -35,7 +35,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     public UserDetailsService userDetailsServiceBean(){
         UserDetails user =
                 User.withDefaultPasswordEncoder()
-                    .username("user")
+                    .username("user@gmail.com")
                     .password("password")
                     .roles("USER")
                     .build();
