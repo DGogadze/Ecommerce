@@ -29,6 +29,8 @@ public class User {
 
     private boolean activated = false;
 
+    private final int activationToken = (int) (Math.random()*10000);
+
     public long getId() {
         return id;
     }
@@ -83,5 +85,9 @@ public class User {
 
     public void setUserLastname(String userLastname) {
         this.userLastname = userLastname;
+    }
+
+    public int getActivationToken() {
+        return activationToken;
     }
 }
