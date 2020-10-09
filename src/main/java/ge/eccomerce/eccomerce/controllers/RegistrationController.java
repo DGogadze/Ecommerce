@@ -26,10 +26,11 @@ public class RegistrationController {
                                @RequestParam String userName,
                                @RequestParam String userLastname,
                                @RequestParam String userPrivateId,
+                               @RequestParam String userPassword,
                                RedirectAttributes redirectAttributes,
                                Model model){
         if (userRepository.findByUserEmail(userEmail)==null&&userRepository.findByUserPrivateIdNumber(userPrivateId)==null){
-            userRegistrationService.userRegistration(userEmail,userName,userLastname,userPrivateId);
+            userRegistrationService.userRegistration(userEmail,userName,userLastname,userPrivateId,userPassword);
         } else {
             redirectAttributes.addFlashAttribute("userEmail",userEmail);
             redirectAttributes.addFlashAttribute("userPrivateId",userPrivateId);

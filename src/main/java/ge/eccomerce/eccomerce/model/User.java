@@ -10,11 +10,13 @@ public class User {
     public User(String userPrivateIdNumber,
                 String userName,
                 String userLastname,
-                String userEmail) {
+                String userEmail,
+                String userPassword) {
         this.userPrivateIdNumber = userPrivateIdNumber;
         this.userName = userName;
         this.userLastname = userLastname;
         this.userEmail = userEmail;
+        this.userPassword = userPassword;
     }
 
     @Id

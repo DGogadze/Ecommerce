@@ -12,12 +12,12 @@ public class UserRegistrationService {
     @Autowired
     MailSenderService mailSenderService;
 
-    public void userRegistration(String userEmail,String userName,String userLastname,String userPrivateId){
-        User user = new User(userPrivateId,userName,userLastname,userEmail);
+    public void userRegistration(String userEmail,String userName,String userLastname,String userPrivateId,String userPassword){
+        User user = new User(userPrivateId,userName,userLastname,userEmail,userPassword);
         mailSenderService.sendMail(userEmail,"Ec-commerce registration",
                 "\t მოგესალმებით " + userName + " " + userLastname + "\n თქვენ დარეგისტრირდით" +
                         " ონლაინ მაღაზია Ec-commerce-ში.\n გაყევით ბმულს თქვენი მომხმარებლის აქტივაციისთვის." +
-                        "\n localhost:8080/activation?userEmail=" +
+                        "\n http://www.localhost:8080/activation?userEmail=" +
                         userEmail + "&token=" + user.getActivationToken());
         userRepository.save(user);
     }
