@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 import java.util.Collection;
 
 @Service
-public class UserService implements UserDetailsService {
+public class CustomUserDetailsService implements UserDetailsService {
     @Autowired
     UserRepository userRepository;
 
@@ -24,14 +24,11 @@ public class UserService implements UserDetailsService {
 }
 
 class UserPrincipal implements UserDetails{
-    @Autowired
-    UserRepository userRepository;
-
-    User user;
-
     UserPrincipal(User user){
         this.user = user;
     }
+
+    User user;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -65,6 +62,6 @@ class UserPrincipal implements UserDetails{
 
     @Override
     public boolean isEnabled() {
-        return true;
+        return user.isActivated();
     }
 }
