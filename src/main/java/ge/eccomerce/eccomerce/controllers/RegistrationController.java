@@ -25,15 +25,15 @@ public class RegistrationController {
     public String registration(@RequestParam String userEmail,
                                @RequestParam String userName,
                                @RequestParam String userLastname,
-                               @RequestParam String userPrivateId,
-                               @RequestParam String userPassword,
+                               @RequestParam String userBankAccountNumber,
+                               @RequestParam String userPhoneNumber,
                                RedirectAttributes redirectAttributes,
                                Model model){
-        if (userRepository.findByUserEmail(userEmail)==null&&userRepository.findByUserPrivateIdNumber(userPrivateId)==null){
-            userRegistrationService.userRegistration(userEmail,userName,userLastname,userPrivateId,userPassword);
+        if (userRepository.findByUserEmail(userEmail)==null&&userRepository.findByUserPhoneNumber(userPhoneNumber)==null){
+            userRegistrationService.userRegistration(userEmail,userName,userLastname,userPhoneNumber,userBankAccountNumber);
         } else {
             redirectAttributes.addFlashAttribute("userEmail",userEmail);
-            redirectAttributes.addFlashAttribute("userPrivateId",userPrivateId);
+            redirectAttributes.addFlashAttribute("userPhoneNumber",userPhoneNumber);
             return "redirect:/registrationfailed";
         }
 

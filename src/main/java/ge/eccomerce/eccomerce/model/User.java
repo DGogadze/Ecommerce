@@ -7,27 +7,28 @@ public class User {
     public User() {
     }
 
-    public User(String userPrivateIdNumber,
+    public User(String userPhoneNumber,
                 String userName,
                 String userLastname,
                 String userEmail,
-                String userPassword) {
-        this.userPrivateIdNumber = userPrivateIdNumber;
+                String userBankAccountNumber) {
+        this.userPhoneNumber = userPhoneNumber;
         this.userName = userName;
         this.userLastname = userLastname;
         this.userEmail = userEmail;
-        this.userPassword = userPassword;
+        this.userBankAccountNumber = userBankAccountNumber;
     }
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    private String userPrivateIdNumber;
-
-    private String userName,userLastname;
+    private String userPhoneNumber;
+    private String userName;
+    private String userLastname;
     private String userPassword;
     private String userEmail;
+    private String userBankAccountNumber;
 
     private boolean activated = false;
 
@@ -73,14 +74,6 @@ public class User {
         this.activated = activated;
     }
 
-    public String getUserPrivateIdNumber() {
-        return userPrivateIdNumber;
-    }
-
-    public void setUserPrivateIdNumber(String userPrivateIdNumber) {
-        this.userPrivateIdNumber = userPrivateIdNumber;
-    }
-
     public String getUserLastname() {
         return userLastname;
     }
@@ -91,5 +84,21 @@ public class User {
 
     public int getActivationToken() {
         return activationToken;
+    }
+
+    public String getUserPhoneNumber() {
+        return userPhoneNumber;
+    }
+
+    public void setUserPhoneNumber(String userPhoneNumber) {
+        this.userPhoneNumber = userPhoneNumber;
+    }
+
+    public String getUserBankAccountNumber() {
+        return userBankAccountNumber;
+    }
+
+    public void setUserBankAccountNumber(String userBankAccountNumber) {
+        this.userBankAccountNumber = userBankAccountNumber;
     }
 }
