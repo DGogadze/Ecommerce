@@ -24,9 +24,8 @@ public class ProfileController {
             UserDetails userDetails = (UserDetails) authentication.getPrincipal();
             User user = userRepository.findByUserEmail(userDetails.getUsername());
 
-            model.addAttribute("username",user.getUserName());
-            model.addAttribute("userlastname",user.getUserLastname());
-            model.addAttribute("useremail", userDetails.getUsername());
+            model.addAttribute("username",user.getUserName() + " " + user.getUserLastname());
+            model.addAttribute("useremail",user.getUserEmail());
         }
         return "profile";
     }

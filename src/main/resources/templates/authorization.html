@@ -16,16 +16,17 @@
         <input class="col-4" type="text" placeholder="ელ.ფოსტა" name="username" required><br><br>
 
         <label><b>პაროლი</b></label><br>
-        <input class="col-4" type="text" placeholder="პაროლი" name="password" required><br>
+        <input class="col-4" type="password" placeholder="პაროლი" name="password" required><br>
 
         <label>
             <input type="checkbox" name="remember" style="margin-bottom:15px"> დამახსოვრება
         </label>
 
         <div class="clearfix">
-            <button type="button" class="btn btn-danger">დახურვა</button>
+            <a href="/home"><button type="button" class="btn btn-danger">დახურვა</button></a>
             <button type="submit" class="btn btn-success">ავტორიზაცია</button>
         </div>
+    </div>
     </form>
 </div>
 <footer th:insert="blocks/footer :: footer"></footer>
