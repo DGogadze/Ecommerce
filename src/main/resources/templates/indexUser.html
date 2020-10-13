@@ -9,9 +9,18 @@
 <header th:insert="blocks/headerUser :: headerUser"></header>
 <div class="allClassesContainer mt-5">
     <h1 style="text-align: center">უახლესი დამატებული პროდუქტები</h1><br>
-    <div th:each="element : ${products}">
-        <h5 style="color:deeppink" th:text="${element.getName()}"></h5><br>
-        <h5 style="color: #cccccc" th:text="${element.getCost()}"></h5>
+    <div class="container grid-container">
+        <div class="row">
+            <div class="col-12 col-md-6 col-lg-4" th:each="element : ${products}">
+                <div class="card">
+                    <img class="card-img-top" src="https://picsum.photos/362/180" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 style="text-align: center" class="card-title" th:text="${element.getName()}">Card title</h5>
+                        <p style="text-align: center" class="card-text" th:text="${element.getCost()}"></p>
+                    </div>
+                </div><br>
+            </div>
+        </div>
     </div>
 </div>
 <footer th:insert="blocks/footer :: footer"></footer>
