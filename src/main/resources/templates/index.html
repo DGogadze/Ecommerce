@@ -8,17 +8,21 @@
 <body>
     <header th:insert="blocks/header :: header"></header>
     <h1 style="text-align: center">უახლესი დამატებული პროდუქტები</h1><br>
+    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+    </div>
     <div class="container grid-container">
+        <a href="/addproduct"><button style="margin:0 0 25px 15px" type="button" class="btn btn-success">პროდუქტის დამატება</button></a><br>
         <div class="row">
-            <div class="col-12 col-md-6 col-lg-4" th:each="element : ${products}">
-                <div class="card">
-                    <img class="card-img-top" src="https://picsum.photos/362/180" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 style="text-align: center" class="card-title" th:text="${element.getName()}">Card title</h5>
-                        <p style="text-align: center" class="card-text" th:text="${element.getCost()}"></p>
-                        <button style="margin-left: 37.5%" class="btn btn-outline-success">ყიდვა</button>
-                    </div>
-                </div><br>
+                <div class="col-12 col-md-6 col-lg-4" th:each="element : ${products}">
+                    <div class="card">
+                        <img class="card-img-top" src="https://picsum.photos/362/180" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 style="text-align: center" class="card-title" th:text="${element.getName()}">Card title</h5>
+                            <p style="text-align: center" class="card-text">ფასი : <span th:text="${element.getCost()}"></span></p>
+                            <p style="text-align: center" class="card-text">რაოდენობა : <span th:text="${element.getCount()}"></span> </p>
+                        </div>
+                    </div><br>
+                </div>
             </div>
         </div>
     </div>

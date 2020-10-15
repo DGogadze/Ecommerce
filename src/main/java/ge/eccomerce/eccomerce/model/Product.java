@@ -1,7 +1,5 @@
 package ge.eccomerce.eccomerce.model;
 
-import org.springframework.context.annotation.Primary;
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -11,12 +9,20 @@ public class Product {
 
     }
 
+    public Product(String name, double cost, int count) {
+        this.name = name;
+        this.cost = cost;
+        this.count = count;
+    }
+
     @Id
     long id;
 
     private String name;
 
-    double cost;
+    private double cost;
+    
+    private int count;
 
     public long getId() {
         return id;
@@ -40,5 +46,13 @@ public class Product {
 
     public void setCost(double cost) {
         this.cost = cost;
+    }
+
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
     }
 }

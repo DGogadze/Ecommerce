@@ -1,6 +1,7 @@
 package ge.eccomerce.eccomerce.model;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class User {
@@ -22,6 +23,9 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+
+    @OneToMany
+    Set<Product> products;
 
     private String userPrivateId;
     private String userName;
@@ -105,5 +109,17 @@ public class User {
 
     public int getChangePasswordToken() {
         return changePasswordToken;
+    }
+
+    public Set<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(Set<Product> products) {
+        this.products = products;
+    }
+
+    public void addProducts(Product product){
+        this.products.add(product);
     }
 }
