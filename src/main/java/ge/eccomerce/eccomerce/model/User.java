@@ -7,12 +7,12 @@ public class User {
     public User() {
     }
 
-    public User(String userPhoneNumber,
+    public User(String userPrivateId,
                 String userName,
                 String userLastname,
                 String userEmail,
                 String userBankAccountNumber) {
-        this.userPhoneNumber = userPhoneNumber;
+        this.userPrivateId = userPrivateId;
         this.userName = userName;
         this.userLastname = userLastname;
         this.userEmail = userEmail;
@@ -23,7 +23,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    private String userPhoneNumber;
+    private String userPrivateId;
     private String userName;
     private String userLastname;
     private String userPassword;
@@ -33,6 +33,7 @@ public class User {
     private boolean activated = false;
 
     private final int activationToken = (int) (Math.random()*10000);
+    private final int changePasswordToken = (int) (Math.random()*10000);
 
     public long getId() {
         return id;
@@ -86,19 +87,23 @@ public class User {
         return activationToken;
     }
 
-    public String getUserPhoneNumber() {
-        return userPhoneNumber;
-    }
-
-    public void setUserPhoneNumber(String userPhoneNumber) {
-        this.userPhoneNumber = userPhoneNumber;
-    }
-
     public String getUserBankAccountNumber() {
         return userBankAccountNumber;
     }
 
     public void setUserBankAccountNumber(String userBankAccountNumber) {
         this.userBankAccountNumber = userBankAccountNumber;
+    }
+
+    public String getUserPrivateId() {
+        return userPrivateId;
+    }
+
+    public void setUserPrivateId(String userPrivateId) {
+        this.userPrivateId = userPrivateId;
+    }
+
+    public int getChangePasswordToken() {
+        return changePasswordToken;
     }
 }

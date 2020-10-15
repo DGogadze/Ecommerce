@@ -24,9 +24,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                             "/",
                             "/home",
                             "/registration",
-                            "/activation**",
+                            "/activation",
                             "/accountactivated",
-                            "/activationsuccessful").permitAll()
+                            "/activationsuccessful",
+                            "/recovery",
+                            "/changepassword").permitAll()
                     .anyRequest().authenticated()
                     .and()
                 .formLogin()
