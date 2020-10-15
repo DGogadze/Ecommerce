@@ -6,6 +6,7 @@ import java.util.Set;
 @Entity
 public class User {
     public User() {
+
     }
 
     public User(String userPrivateId,
@@ -25,7 +26,7 @@ public class User {
     private long id;
 
     @OneToMany
-    Set<Product> products;
+    private Set<Product> products;
 
     private String userPrivateId;
     private String userName;

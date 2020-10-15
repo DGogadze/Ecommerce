@@ -40,6 +40,6 @@ public class AddProductController {
             User user = userRepository.findByUserEmail(userDetails.getUsername());
             productService.addNewProduct(user.getUserEmail(),name,cost,count);
         }
-        return "redirect:/home";
+        return "redirect:/";
     }
 }
