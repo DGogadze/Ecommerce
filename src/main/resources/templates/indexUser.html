@@ -7,22 +7,58 @@
 </head>
 <body>
 <header th:insert="blocks/headerUser :: headerUser"></header>
-<div class="allClassesContainer mt-5">
-    <h1 style="text-align: center">უახლესი დამატებული პროდუქტები</h1><br>
-    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
-    </div>
-    <div class="container grid-container">
-        <a href="/addproduct"><button style="margin:0 0 25px 15px" type="button" class="btn btn-success">პროდუქტის დამატება</button></a><br>
-        <div class="row">
-                <div class="col-12 col-md-6 col-lg-4" th:each="element : ${products}">
-                    <div class="card">
-                        <img class="card-img-top" src="https://picsum.photos/362/180" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 style="text-align: center" class="card-title" th:text="${element.getName()}">Card title</h5>
-                            <p style="text-align: center" class="card-text">ფასი : <span th:text="${element.getCost()}"></span></p>
-                            <p style="text-align: center" class="card-text">რაოდენობა : <span th:text="${element.getCount()}"></span> </p>
+<h1 style="text-align: center">უახლესი დამატებული პროდუქტები</h1>
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+</div>
+<div class="container grid-container">
+    <a href="/addproduct"><button style="margin:0 0 25px 15px" type="button" class="btn btn-success">პროდუქტის დამატება</button></a><br>
+    <div class="row">
+        <div class="col-12 col-md-6 col-lg-4" th:each="element : ${products}">
+            <div class="card">
+                <img class="card-img-top" src="https://picsum.photos/362/180" alt="Card image cap">
+                <div class="card-body">
+                    <h5 style="text-align: center" class="card-title" th:text="${element.getName()}">Card title</h5>
+                    <p style="text-align: center" class="card-text">ფასი : <span th:text="${element.getCost()}"></span></p>
+                    <p style="text-align: center" class="card-text">რაოდენობა : <span th:text="${element.getCount()}"></span> </p>
+                    <!-- Button to Open the Modal -->
+                    <button style="margin-left: 40%" type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">
+                        ყიდვა
+                    </button>
+
+                    <!-- The Modal -->
+                    <div class="modal" id="myModal">
+                        <div class="modal-dialog modal-sm">
+                            <div class="modal-content">
+                                <form action="/buyproduct" method="post">
+                                    <!-- Modal Header -->
+                                    <div class="modal-header">
+                                        <h4 class="modal-title" style="color: #368819">პროდუქტის ყიდვა</h4>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    </div>
+
+                                    <!-- Modal body -->
+                                    <div class="modal-body">
+                                        <div>
+                                            <label><b>რაოდენობა</b></label><br>
+                                            <input class="col-4" type="number" min="1" value="1" name="count" required><br><br>
+                                            <label><b>ბარათის ნომერი</b></label><br>
+                                            <input class="col-12" type="text"><br><br>
+                                            <label><b>მოქმედების ვადა</b></label><br>
+                                            <input class="col-12" type="date"><br><br>
+                                            <label><b>CVV/CVC</b></label><br>
+                                            <input class="col-4" type="text"><br><br>
+                                        </div>
+                                    </div>
+
+                                    <!-- Modal footer -->
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-success" data-dismiss="modal">ყიდვა</button>
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">დახურვა</button>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
-                    </div><br>
+                    </div>
                 </div>
             </div>
         </div>

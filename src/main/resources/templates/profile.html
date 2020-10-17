@@ -9,13 +9,14 @@
 <body>
 <header th:insert="blocks/headerUser :: headerUser"></header>
     <div>
-    <p class="profileText">თქვენი მონაცემები</p>
-        <p class="userDetails">სახელი,გვარი : <span th:text="${username}"></span></p>
-        <p class="userDetails">ელ.ფოსტა : <span th:text="${useremail}"></span></p>
-        <p class="userDetails">ბანკის ანგარიშის ნომერი : <span th:text="${bankaccount}"></span> </p>
+        <h4 class="text-warning" style="padding-left: 30px">თქვენი მონაცემები</h4><br>
+        <p class="text-muted" style="padding-left: 30px">სახელი,გვარი : <span th:text="${username}"></span></p>
+        <p class="text-muted" style="padding-left: 30px">ელ.ფოსტა : <span th:text="${useremail}"></span></p>
+        <p class="text-muted" style="padding-left: 30px">საბანკო ანგარიშის ნომერი : <span th:text="${bankaccount}"></span> </p>
     </div>
     <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
     </div>
+    <h2 style="text-align: center">თქვენი პროდუქტები</h2><br>
         <div class="container grid-container">
             <div class="row">
                 <div class="col-12 col-md-6 col-lg-4" th:each="element : ${products}">
