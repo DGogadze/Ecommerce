@@ -28,6 +28,7 @@ public class ProfileController {
             model.addAttribute("useremail",user.getUserEmail());
             model.addAttribute("products",user.getProducts());
             model.addAttribute("bankaccount",user.getUserBankAccountNumber());
+            model.addAttribute("userPrivateId",user.getUserPrivateId());
         }
         return "profile";
     }
