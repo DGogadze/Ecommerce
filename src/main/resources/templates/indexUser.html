@@ -4,6 +4,9 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>Ec-commerce - ონლაინ მაღაზია</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
 <header th:insert="blocks/headerUser :: headerUser"></header>
@@ -29,7 +32,7 @@
                     <div class="modal" id="myModal">
                         <div class="modal-dialog modal-sm">
                             <div class="modal-content">
-                                <form action="/buyproduct" method="post">
+                                <form action="/buyproduct" th:action="@{/buyproduct}" th:object="${element}" method="post">
                                     <!-- Modal Header -->
                                     <div class="modal-header">
                                         <h4 class="modal-title" style="color: #368819">პროდუქტის ყიდვა</h4>
@@ -39,6 +42,7 @@
                                     <!-- Modal body -->
                                     <div class="modal-body">
                                         <div>
+                                            <input type="hidden" name="id" th:value="*{getId()}">
                                             <label><b>რაოდენობა</b></label><br>
                                             <input class="col-4" type="number" min="1" value="1" name="count" required><br><br>
                                             <label><b>ბარათის ნომერი</b></label><br>
@@ -52,7 +56,7 @@
 
                                     <!-- Modal footer -->
                                     <div class="modal-footer">
-                                        <button type="submit" class="btn btn-success" data-dismiss="modal">ყიდვა</button>
+                                        <button type="submit" class="btn btn-success">ყიდვა</button>
                                         <button type="button" class="btn btn-danger" data-dismiss="modal">დახურვა</button>
                                     </div>
                                 </form>
