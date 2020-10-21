@@ -29,7 +29,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                             "/activationsuccessful",
                             "/recovery",
                             "/changepassword",
-                            "/static/**").permitAll()
+                            "/static/**",
+                            "/registrationsuccessfull",
+                            "/registrationfailed").permitAll()
                     .anyRequest().authenticated()
                     .and()
                 .formLogin()

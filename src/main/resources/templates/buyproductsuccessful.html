@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Ec-commerce - რეგისტრაცია</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css" th:href="@{styles.css}">
+</head>
+<body>
+<header th:insert="blocks/headerUser :: headerUser"></header>
+<p class="userDetails">თქვენ იყიდეთ "<b th:text="${boughtproduct}"></b>"</p>
+<p class="userDetails">ოპერაცია წარმატებით დასრულდა!</p>
+<footer th:insert="blocks/footer :: footer"></footer>
+</body>
+</html>
+</body>
+</html>
