@@ -24,12 +24,12 @@
                     <p style="text-align: center" class="card-text">ფასი : <span th:text="${element.getCost()}"></span></p>
                     <p style="text-align: center" class="card-text">რაოდენობა : <span th:text="${element.getCount()}"></span> </p>
                     <!-- Button to Open the Modal -->
-                    <button style="margin-left: 40%" type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">
+                    <button style="margin-left: 40%" type="button" class="btn btn-success" data-toggle="modal" th:attr="data-target='#id-' + ${element.getId()}">
                         ყიდვა
                     </button>
 
                     <!-- The Modal -->
-                    <div class="modal" id="myModal">
+                    <div class="modal" th:id="'id-' + ${element.getId()}">
                         <div class="modal-dialog modal-sm">
                             <div class="modal-content">
                                 <form action="#" th:action="@{/buyproduct}" th:object="${element}" method="post">
