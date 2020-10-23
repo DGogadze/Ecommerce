@@ -1,4 +1,4 @@
-# Eccomerce
+# Ecommerce
 
 # Build
 #### პროექტის ბილდისთვის საჭიროა src\main\java\ge\eccomerce\eccomerce\EccomerceApplication.java ფაილის main მეთოდის გაშვება.
