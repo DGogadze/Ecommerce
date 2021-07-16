@@ -1,5 +1,6 @@
 package ge.eccomerce.eccomerce.controllers;
 
+import ge.eccomerce.eccomerce.model.User;
 import ge.eccomerce.eccomerce.repository.UserRepository;
 import ge.eccomerce.eccomerce.service.UserRegistrationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,23 +18,17 @@ public class RegistrationController {
     UserRepository userRepository;
 
     @GetMapping("/registration")
-    public String registration(Model model){
+    public String registration(){
         return "registration";
     }
 
     @PostMapping("/registration")
-    public String registration(@RequestParam String userEmail,
-                               @RequestParam String userName,
-                               @RequestParam String userLastname,
-                               @RequestParam String userBankAccountNumber,
-                               @RequestParam String userPrivateId,
-                               RedirectAttributes redirectAttributes,
-                               Model model){
+    public String registration(@RequestBody User user){
+        String userEmail = user.getUserEmail();
+        String userPrivateId = user.getUserPrivateId();
         if (userRepository.findByUserEmail(userEmail)==null&&userRepository.findByUserPrivateId(userPrivateId)==null){
-            userRegistrationService.userRegistration(userEmail,userName,userLastname,userPrivateId,userBankAccountNumber);
+            userRegistrationService.userRegistration(user);
         } else {
-            redirectAttributes.addFlashAttribute("userEmail",userEmail);
-            redirectAttributes.addFlashAttribute("userPrivateId",userPrivateId);
             return "redirect:/registrationfailed";
         }
 
@@ -41,7 +36,7 @@ public class RegistrationController {
     }
 
     @GetMapping("/registrationfailed")
-    public String registrationFailed(Model model){
+    public String registrationFailed(){
 
         return "registrationfailed";
     }

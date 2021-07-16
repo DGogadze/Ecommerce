@@ -1,5 +1,7 @@
 package ge.eccomerce.eccomerce.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.*;
 import java.util.Set;
 
@@ -28,11 +30,17 @@ public class User {
     @OneToMany
     private Set<Product> products;
 
+    @JsonProperty("userPrivateId")
     private String userPrivateId;
+    @JsonProperty("userName")
     private String userName;
+    @JsonProperty("userLastname")
     private String userLastname;
+    @JsonProperty("userPassword")
     private String userPassword;
+    @JsonProperty("userEmail")
     private String userEmail;
+    @JsonProperty("userBankAccountNumber")
     private String userBankAccountNumber;
 
     private boolean activated = false;
